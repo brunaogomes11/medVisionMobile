@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#FFF',
       alignItems: 'center',
-      width: "100%"
+      width: "100%",
+      paddingTop: 30
     },
     pageTitle: {
         fontSize: 40,

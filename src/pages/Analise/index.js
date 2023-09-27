@@ -40,16 +40,16 @@ export default function AnaliseScreen({route}) {
     };
 
     const uploadImageAsync = async (uri) => {
-      let apiUrl = 'https://web-production-fd36.up.railway.app/uploadedRN';
+      let apiUrl = 'http://127.0.0.1:5000/classificationApp';
   
       const uriParts = uri.split('.');
       const fileType = uriParts[uriParts.length - 1];
   
       const formData = new FormData();
-      formData.append('image', {
+      formData.append('uploaded_file', {
         uri,
-        name: `image.${fileType}`,
-        type: `image/${fileType}`,
+        name: `uploaded_file.${fileType}`,
+        type: `uploaded_file/${fileType}`,
       });
   
       try {
@@ -59,6 +59,7 @@ export default function AnaliseScreen({route}) {
           },
         });
         setPrediction(response.data);
+        print(prediction)
         return setLoadingVisible(null);
       } catch (error) {
         return error
@@ -66,10 +67,10 @@ export default function AnaliseScreen({route}) {
     };
     return (
         <View style={styles.container}>
-            <Text style={styles.pageTitle}>Raio-X-Covid</Text>
+            <Text style={styles.pageTitle}>MedVision</Text>
             <View>
                 <Text style={styles.textSelect}>Selecione ou tire uma foto para a análise</Text>
-                <Text style={styles.warnSelect}>Lembre-se de selecionar ou tirar foto apenas de imagens raio-x. A imagem deve ser tirada em um fundo claro e sem reflexos para melhor identificação.</Text>
+                <Text style={styles.warnSelect}>Lembre-se de selecionar ou tirar foto apenas de imagens médicas. A imagem deve ser tirada em um fundo claro e sem reflexos para melhor identificação.</Text>
                 <View style={styles.containerButtons}>
                     {
                         iconsVisible == false ? 

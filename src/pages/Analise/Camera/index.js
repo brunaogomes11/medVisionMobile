@@ -64,6 +64,7 @@ export default function CameraScreen({navigation}) {
                     >
                       <View style={styles.modalLoading}>
                         <ActivityIndicator size="large" />
+                        <Text>Mantenha a Camera estável</Text>
                       </View>
                     </Modal>}
                 </View>
